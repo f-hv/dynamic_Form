@@ -1,5 +1,12 @@
 <div class="section">
-    <label> {{ model.title }}</label>
-    <input type="text" [name]="model.name" [(ngModel)]="data" (ngModelChange)="valueChanged.emit($event)" />
+    <div class="fields">
+        <label class="title"> {{model.title}} </label>
+        <input [ngClass]="formControl.invalid && (formControl.touched || formControl.dirty ) ? 'input-error' : 'input-success'"
+            type="text" [formControl]="formControl" [placeholder]="model.title" />
+    </div>
+    <div class="error">
+        @if(formControl.invalid && (formControl.touched || formControl.dirty )){
+        <label class="errorLabel">{{model.errorMessage}} </label>
+        }
+    </div>
 </div>
-<!-- {{model|json}} -->

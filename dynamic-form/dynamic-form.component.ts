@@ -78,7 +78,6 @@ export class DynamicFormComponent implements OnInit {
   submitForm($event: any) {
     console.log("this.dynamicForm:", this.dynamicForm);
     this.isDirty = false;
-    // this.dynamicForm.reset()
     this.onSubmit.emit(this.dynamicForm.getRawValue())
     this.isDirty = true
 

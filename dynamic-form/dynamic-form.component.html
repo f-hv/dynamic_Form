@@ -9,16 +9,14 @@
 
         @case
             (formFieldType.TEXT) {
-                <app-custom-input-text [model]="item" (valueChanged)="getInputData($event,item)"/>
-                @if(dynamicForm.get(item.name)?.invalid){
-                    <label> {{item.errorMessage}}</label>
-                }
-                <!-- <span>{{dynamicForm.get(item.name)?.errors|json}} </span> -->
+                <app-custom-input-text [formControl]="dynamicForm.get(item.name)" [model]="item" />
             }
         } 
     }
-        
+        <div class="submit-section">
+
+            <button (click)="submitForm($event)" > submit </button>
+        </div>
      
-    <button (click)="submitForm($event)" > submit </button>
 </div>
     
